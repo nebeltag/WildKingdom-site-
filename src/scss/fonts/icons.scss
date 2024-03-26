@@ -8,9 +8,46 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
 [class*="_icon-"] {
 	&:before {
 		@extend %ic;
 		display: block;
 	}
+}
+
+._icon-clock:before {
+	content: "\e900";
+}
+
+._icon-geolocation:before {
+	content: "\e901";
+}
+
+._icon-paragraph:before {
+	content: "\e902";
+}
+
+._icon-play_button:before {
+	content: "\e903";
+}
+
+._icon-s_insta:before {
+	content: "\e904";
+}
+
+._icon-s_medium:before {
+	content: "\e905";
+}
+
+._icon-s_tiktok:before {
+	content: "\e906";
+}
+
+._icon-s_twitter:before {
+	content: "\e907";
+}
+
+._icon-slider_arrow:before {
+	content: "\e908";
 }
