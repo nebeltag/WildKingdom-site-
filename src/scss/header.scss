@@ -115,33 +115,55 @@
     color: $bgGold;
     font-weight: 300;
     line-height: 152%;
-    position: relative;
+    // position: relative;
+
+    //--------------------------------------------------------------
+    //for underline animation with linear-gradient & background
+    background-image: linear-gradient($bgGold, $bgGold);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .25s ease-out;
+
+    @media(any-hover:hover) {
+      &:hover {
+        background-size: 100% 2px;
+        background-position: bottom left;
+      }
+    }
+
+    //--------------------------------------------------------------
 
     @media(max-width:$mobile) {
       color: #fff;
       font-size: toRem(28);
     }
 
-    @media (any-hover:hover) {
-      &:before {
-        // text-decoration: underline;
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: $bgGold;
-        transform-origin: bottom right;
-        transition: transform 0.25s ease-out;
-      }
+    //--------------------------------------------------------------
+    //for underline animation with :before
 
-      &:hover:before {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-      }
-    }
+
+    // @media (any-hover:hover) {
+    //   &:before {
+    //     // text-decoration: underline;
+    //     content: '';
+    //     position: absolute;
+    //     width: 100%;
+    //     transform: scaleX(0);
+    //     height: 2px;
+    //     bottom: 0;
+    //     left: 0;
+    //     background-color: $bgGold;
+    //     transform-origin: bottom right;
+    //     transition: transform 0.25s ease-out;
+    //   }
+
+    //   &:hover:before {
+    //     transform: scaleX(1);
+    //     transform-origin: bottom left;
+    //   }
+    // }
+    //------------------------------------------------
 
     // @media(any-hover:hover) {
     //   &:hover {
@@ -170,34 +192,26 @@
     color: $bgGold;
     font-weight: 300;
     line-height: 152%;
-    position: relative;
+    //position: relative;
+
+    background-image: linear-gradient($bgGold, $bgGold);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .25s ease-out;
+
+    @media(any-hover:hover) {
+      &:hover {
+        background-size: 100% 2px;
+        background-position: bottom left;
+      }
+    }
 
     @media(max-width:$mobile) {
       color: #fff;
     }
-
-    @media (any-hover:hover) {
-      &:after {
-        // text-decoration: underline;
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: $bgGold;
-        transform-origin: bottom right;
-        transition: transform 0.25s ease-out;
-      }
-
-      &:hover:after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-
-      }
-    }
   }
+
 
   // .action__header-button
 
