@@ -10,6 +10,10 @@
     position: absolute;
     height: 100%;
     width: toRem(174);
+
+    @media(max-width: toEm(1640)) {
+      opacity: 0.1;
+    }
   }
 
   &::before {
@@ -31,22 +35,44 @@
 
   // .footer__container
 
-  &__container {}
+  &__container {
+    position: relative;
+    z-index: 5;
+  }
 
   // .footer__body
 
   &__body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    @include adaptiveValue("padding-top", 92, 40);
+    @include adaptiveValue("padding-top", 92, 30);
     @include adaptiveValue("padding-bottom", 45, 30);
+
+    @media (max-width:$tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width:$tablet) {
+      grid-template-columns: auto;
+    }
   }
 
   // .footer__content
 
   &__content {
-    border-right: toRem(1) solid $bgGold;
     @include adaptiveValue("padding-right", 40, 15);
+
+    @media (max-width:$tablet) {
+      order: 2;
+    }
+
+    @media (max-width:$mobile) {
+      order: 3;
+    }
+
+    @media (min-width:$tablet) {
+      border-right: toRem(1) solid $bgGold;
+    }
   }
 
   // .footer__menu
@@ -65,16 +91,45 @@
 
   &__logo {
     justify-self: center;
-    @include adaptiveValue("width", 287, 80);
+    align-self: center;
+    @include adaptiveValue("width", 287, 150);
+
+    @media (max-width:$tablet) {
+      order: 1;
+      grid-column: span 2;
+
+      &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 40, 30);
+      }
+    }
+
+    @media (max-width:$mobile) {
+      grid-column: span 1;
+    }
   }
 
   // .footer__subscribe
 
-  &__subscribe {}
+  &__subscribe {
+    @media (max-width:$tablet) {
+      order: 3;
+    }
+
+    @media (max-width:$mobile) {
+      order: 2;
+
+
+      @include adaptiveValue("margin-bottom", 40, 30);
+
+    }
+  }
 
   // .footer__copy
 
   &__copy {
+    border-top: toRem(1) solid $bgGold;
+    text-align: center;
+    line-height: 120%;
     @include adaptiveValue("padding-top", 42, 15);
     @include adaptiveValue("padding-bottom", 42, 15);
   }
@@ -98,6 +153,29 @@
     &:not(:last-child) {
       margin-bottom: toRem(15);
     }
+
+    ._spoller-init & {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &::after {
+        display: flex;
+        justify-content: end;
+        width: toRem(20);
+        overflow: hidden;
+        @extend %ic;
+        content: "\e908";
+        transition: transform .4s ease;
+        transform: rotate(90deg);
+      }
+    }
+
+    &._spoller-active {
+      &::after {
+        transform: rotate(-90deg);
+      }
+    }
   }
 
   // .menu-footer__list
@@ -107,6 +185,12 @@
     flex-wrap: wrap;
     row-gap: toRem(3);
     @include adaptiveValue("column-gap", 42, 15);
+
+    @media (max-width:$mobile) {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      row-gap: toRem(10);
+    }
   }
 
   // .menu-footer__item
@@ -136,6 +220,10 @@
   row-gap: toRem(3);
   @include adaptiveValue("column-gap", 41, 15);
 
+  @media (max-width:$mobileSmall) {
+    justify-content: space-between;
+  }
+
 
   // .social__item
 
@@ -152,15 +240,22 @@
 }
 
 .subscribe {
-  display: grid;
-  justify-items: end;
-  border-left: toRem(1) solid $bgGold;
-  @include adaptiveValue("padding-left", 40, 15);
+  @include adaptiveValue("padding-left", 40, 15, 2, $containerWidth, 767.98);
+
+  @media (min-width:$mobile) {
+    border-left: toRem(1) solid $bgGold;
+    display: grid;
+    justify-items: end;
+  }
+
+
 
   // .subscribe__body
 
   &__body {
-    max-width: toRem(350);
+    @media (min-width:$mobile) {
+      max-width: toRem(350);
+    }
   }
 
 
@@ -168,12 +263,12 @@
 
   &__title {
     font-family: "Italiana";
-    font-size: toRem(32);
+    @include adaptiveValue("font-size", 32, 18);
     text-transform: capitalize;
     line-height: 120%;
 
     &:not(:last-child) {
-      margin-bottom: toRem(25);
+      @include adaptiveValue("margin-bottom", 25, 10);
     }
   }
 
@@ -181,9 +276,18 @@
 
   &__form {
     display: flex;
-    align-items: center;
     height: toRem(40);
     border-bottom: toRem(1) solid rgba(193, 170, 129, 0.2);
+    position: relative;
+
+    .form__error {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      font-size: toRem(14);
+      color: red;
+      margin-top: toRem(8);
+    }
   }
 
   // .subscribe__input
@@ -195,6 +299,7 @@
   // .subscribe__button
 
   &__button {
+    margin-left: toRem(12);
     transition: color .3s;
 
     @media(any-hover:hover) {

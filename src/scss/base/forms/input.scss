@@ -25,6 +25,7 @@ textarea {
 .input[placeholder]:not([data-placeholder-nohiden]) {
 	&::placeholder {
 		color: $bgGold;
+		transition: opacity .3s;
 	}
 
 	&:focus::placeholder {
