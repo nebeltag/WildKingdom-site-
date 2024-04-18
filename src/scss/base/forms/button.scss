@@ -37,6 +37,12 @@
 		&::before {
 			opacity: 0;
 		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				border: toRem(1) solid transparent;
+			}
+		}
 	}
 
 	span {
@@ -47,7 +53,6 @@
 	@media (any-hover: hover) {
 		&:hover {
 			color: $mainColor;
-			border: toRem(1) solid transparent;
 
 			&::before {
 				opacity: 1;

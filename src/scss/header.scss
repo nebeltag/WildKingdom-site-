@@ -4,6 +4,12 @@
   left: 0;
   width: 100%;
   z-index: 50;
+  transition: all .8s;
+
+  &._header-scroll {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
   // .header__container
 
   &__container {
@@ -12,12 +18,17 @@
     gap: toRem(20);
     @include adaptiveValue("min-height", 152, 70);
     align-items: center;
+    transition: min-height 0.8s;
     padding-top: toRem(10);
     padding-bottom: toRem(10);
 
     @media(max-width:$mobile) {
       gap: toRem(0);
       grid-template-columns: auto 1fr auto auto;
+    }
+
+    ._header-scroll & {
+      @include adaptiveValue("min-height", 100, 70);
     }
   }
 
@@ -28,6 +39,7 @@
   // .header__logo
 
   &__logo {
+    transition: width 0.8s;
     @include adaptiveValue("width", 217, 80);
     position: relative;
     z-index: 5;
@@ -38,6 +50,10 @@
           fill: #fff;
         }
       }
+    }
+
+    ._header-scroll & {
+      @include adaptiveValue("width", 150, 80);
     }
   }
 
@@ -67,7 +83,7 @@
       top: 0;
       overflow: auto;
       background-color: $bgGold;
-      transition: left .3s;
+      transition: left .7s;
       padding: toRem(100) toRem(15) toRem(30) toRem(15);
 
       &::before {
@@ -79,7 +95,7 @@
         top: 0;
         z-index: 2;
         background-color: $bgGold;
-        transition: left .3s;
+        transition: left .7s;
       }
 
       .menu-open & {
