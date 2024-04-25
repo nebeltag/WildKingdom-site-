@@ -7,6 +7,14 @@
   gap: toRem(20);
   justify-items: start;
 
+  &--center {
+    justify-items: center;
+  }
+
+  &--white {
+    color: #fff;
+  }
+
   // .block-header__label
 
   &__label {
@@ -21,7 +29,7 @@
     color: $goldColor;
     text-transform: capitalize;
     font-family: "Italiana";
-    font-size: toRem(48);
+    @include adaptiveValue("font-size", 48, 42);
     line-height: 120%;
   }
 
