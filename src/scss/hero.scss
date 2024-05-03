@@ -197,4 +197,26 @@
   }
 }
 
+.up {
+  transform: rotate(-90deg);
+  font-size: toRem(20);
+  position: fixed;
+  bottom: toRem(30);
+  right: toRem(10);
+  opacity: 1;
+  color: $bgGold;
+  z-index: 50;
+  visibility: visible;
+  transition: all .8s;
+
+  ._watcher-view & {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  @media (max-width:$mobile) {
+    display: none;
+  }
+}
+
 //====================================================================================================

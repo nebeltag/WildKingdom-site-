@@ -44,6 +44,16 @@
 
 .item-product {
 
+  transform: translate(0, 10%);
+  opacity: 0;
+  transition: all .2s;
+
+  &._watcher-view {
+    transition: all .8s;
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
   // .item-product__header
 
   &__header {

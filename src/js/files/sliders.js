@@ -82,6 +82,31 @@ function initSliders() {
 			}
 		});
 	}
+
+	if (document.querySelector('.reviews__slider')) { // Вказуємо склас потрібного слайдера
+		// Створюємо слайдер
+		const mainSlider = new Swiper('.reviews__slider', { // Вказуємо склас потрібного слайдера
+			// Підключаємо модулі слайдера
+			// для конкретного випадку
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			loop: true,
+			spaceBetween: 30,
+			autoHeight: true,
+			speed: 800,
+
+
+			// Кнопки "вліво/вправо"
+			navigation: {
+				prevEl: '.reviews__arrow--prew',
+				nextEl: '.reviews__arrow--next',
+			},
+
+			// Події			
+		});
+	}
 }
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)
 function initSlidersScroll() {

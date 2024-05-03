@@ -14,6 +14,8 @@ npm config set fetch-retry-maxtimeout 120000
 
 1:27:00
 
+01:47:00
+
 подключить снипет input
 
 другой комп:
