@@ -75,19 +75,36 @@
     }
 
     p {
+      //position: relative;
+
       &:not(:last-child) {
         margin-bottom: toRem(15);
       }
 
-      // &::before {
-      //   @extend %ic;
-      //   content: "\e902";
-      // }
+      &:first-child {
+        &::before {
+          position: relative;
+          @include adaptiveValue("top", -20, -13);
+          @include adaptiveValue("padding-right", 32, 10);
+          @extend %ic;
+          content: "\e902";
+          @include adaptiveValue("font-size", 32, 16);
+          color: $goldColor;
+        }
+      }
 
-      // &::after {
-      //   @extend %ic;
-      //   content: "\e902";
-      // }
+      &:last-child {
+        &::after {
+          position: relative;
+          @include adaptiveValue("top", 10, 5);
+          @include adaptiveValue("padding-right", 27, 10);
+          @extend %ic;
+          content: "\e902";
+          @include adaptiveValue("font-size", 32, 16);
+          transform: rotateY(180deg);
+          color: $goldColor;
+        }
+      }
     }
   }
 
